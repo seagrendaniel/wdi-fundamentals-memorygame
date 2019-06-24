@@ -26,6 +26,7 @@ var cards = [
 var cardsInPlay = [];
 
 
+
 function checkForMatch() {
 	if(cardsInPlay.length === 2) {
 		if(cardsInPlay[0].rank === cardsInPlay[1].rank) {
@@ -45,7 +46,7 @@ function flipCard() {
 	checkForMatch();
 }
 
-var createBoard = function() {
+function createBoard() {
 	for(i=0; i < cards.length; i++) {
 		var cardElement = document.createElement('img');
 		cardElement.setAttribute('src', 'images/back.png');
