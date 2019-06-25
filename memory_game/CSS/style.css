@@ -101,3 +101,19 @@ font-size: 0;
 a:hover {
 	border-color: white;
 }
+
+#reset-button {
+	width: 100px;
+	height: 30px;
+	margin: 0 auto;
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-family: "Raleway";
+	background-color: rgba(219,74,46,0.75);
+	border-radius: 7%;
+}
+
+#reset-button:hover{
+	background-color: #FFFFFF;
+}

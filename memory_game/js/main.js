@@ -25,7 +25,19 @@ var cards = [
 
 var cardsInPlay = [];
 
-
+function shuffleDeck(cardArray) {
+	var m = cardArray.length, t, i;	
+// While there are still cards to shuffle
+	while(m) {
+		// choose random unshuffled card
+		i = Math.floor(Math.random() * m--);
+		//move it to the end of the array and switch with shuffled card
+		t = cardArray[m];
+		cardArray[m] = cardArray[i];
+		cardArray[i] = t;
+	}
+	return cardArray;
+}
 
 function checkForMatch() {
 	if(cardsInPlay.length === 2) {
@@ -40,7 +52,6 @@ function checkForMatch() {
 
 function flipCard() {
 	var cardID = this.getAttribute('data-id');
-	console.log(cards[cardID].cardImage);
 	cardsInPlay.push(cards[cardID]);
 	this.setAttribute('src', cards[cardID].cardImage);
 	checkForMatch();
@@ -54,10 +65,27 @@ function createBoard() {
 		cardElement.addEventListener('click', flipCard);
 		document.getElementById('game-board').appendChild(cardElement);
 	}
+	var resetNode = document.getElementById('reset-button');
+	resetNode.addEventListener('click', resetGame);
 }
 
+function newGame() {
+	var clearDiv = document.getElementById('game-board');
+	while(clearDiv.firstChild){
+		clearDiv.removeChild(clearDiv.firstChild);
+	}
+	shuffleDeck(cards);
+	createBoard();
+}
 
-createBoard();
+function resetGame() {
+	cardsInPlay = [];
+	newGame();
+} 
+
+newGame();
+
+
 
 
 
