@@ -38,17 +38,40 @@ function shuffleDeck(cardArray) {
 	}
 	return cardArray;
 }
+//var win = 0;
+var youWon = 0;
+var numberOfWins = document.getElementById('stats');
 
 function checkForMatch() {
 	if(cardsInPlay.length === 2) {
 		if(cardsInPlay[0].rank === cardsInPlay[1].rank) {
 		alert("You found a match!");
+		youWon += 1;
 		}
 		else {
 		alert("Sorry, try again.");
+		youWon = youWon;
+		}
+		if (youWon === 1) {
+		numberOfWins.innerHTML = "Stats: " + youWon + " game won";
+		}
+		else if (youWon > 1) {
+			numberOfWins.innerHTML = "Stats: " + youWon + " games won";
+		}
+		else {
+			numberOfWins.innerHTML = "Stats: no games won yet";
 		}
 	}
 }
+
+/*function checkForWin {
+	if (win === 1){
+		youWon += 1;
+	}
+	else {
+		youWon += 0;
+	}
+}*/
 
 function flipCard() {
 	var cardID = this.getAttribute('data-id');
