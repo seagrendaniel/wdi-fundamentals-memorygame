@@ -38,7 +38,7 @@ function shuffleDeck(cardArray) {
 	}
 	return cardArray;
 }
-//var win = 0;
+
 var youWon = 0;
 var numberOfWins = document.getElementById('stats');
 
@@ -52,6 +52,8 @@ function checkForMatch() {
 		alert("Sorry, try again.");
 		youWon = youWon;
 		}
+		
+
 		if (youWon === 1) {
 		numberOfWins.innerHTML = "Stats: " + youWon + " game won";
 		}
@@ -64,14 +66,7 @@ function checkForMatch() {
 	}
 }
 
-/*function checkForWin {
-	if (win === 1){
-		youWon += 1;
-	}
-	else {
-		youWon += 0;
-	}
-}*/
+
 
 function flipCard() {
 	var cardID = this.getAttribute('data-id');
